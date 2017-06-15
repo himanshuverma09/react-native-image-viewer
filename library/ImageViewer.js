@@ -393,13 +393,17 @@ export default class ImageViewer extends Component{
 
         return (
             <Modal visible={shown} transparent={true} animationType={"none"} onRequestClose={this.modalDismissed.bind(this)} >
-                <Animated.View style={[viewer.titleBar,{
+            { this.props.imageUrls.length > 1 ?    
+            <Animated.View style={[viewer.titleBar,{
                     opacity:this.state.fadeAnim
                 }]}>
                     <Text style={viewer.title}>
                         {(this.state.curIndex + 1)} / {this.props.imageUrls.length}
                     </Text>
                 </Animated.View>
+                :
+                null
+              }
                 <Animated.View
                     style={[viewer.container,{
                         opacity:this.state.fadeAnim,
